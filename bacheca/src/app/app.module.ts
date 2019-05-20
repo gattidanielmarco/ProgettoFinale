@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ElencoComponent } from './elenco/elenco.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ElencoComponent
   ],
   imports: [
     BrowserModule, ReactiveFormsModule, FormsModule
