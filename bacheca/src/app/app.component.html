@@ -1,9 +1,34 @@
-<form [formGroup] = "myForm" (ngSubmit) = "onSubmit()">
+<button (click) = "hiddenButton()" class = "btn btn-primary right"
+<div class="container">
+<form [formGroup] = "myForm" (ngSubmit) = "onSubmit()" class="jumbotron">
+  <div class="form-group">
   Nome <input type = "text" [formControl] = "myForm.controls['nome']">
+  <div *ngIf="!myForm.controls['nome'].valid" class="alert alert-danger">Nome is invalid
+</div>
+<div *ngIf="myForm.controls['nome'].hasError('required')" class="alert alert-danger">Nome is required
+</div>
   Cognome <input type = "text" [formControl] = "myForm.controls['cognome']">
+  <div *ngIf="!myForm.controls['cognome'].valid" class="alert alert-danger">Cognome is invalid
+</div>
+<div *ngIf="myForm.controls['cognome'].hasError('required')" class="alert alert-danger">Cognome is required
+</div>
   Email <input type = "email" [formControl] = "myForm.controls['email']">
+  <div *ngIf="!myForm.controls['email'].valid" class="alert alert-danger">Email is invalid
+</div>
+<div *ngIf="myForm.controls['email'].hasError('required')" class="alert alert-danger">Email is required
+</div>
   Password <input type = "password" [formControl] = "myForm.controls['password']">
-  Numero <input type = "number" [formControl] = "myForm.controls['numeri']">
-  <button>cliccami</button>
+  <div *ngIf="!myForm.controls['password'].valid" class="alert alert-danger">Password is invalid
+</div>
+<div *ngIf="myForm.controls['password'].hasError('required')" class="alert alert-danger">Password is required
+</div>
+  Numero <input type = "text" [formControl] = "myForm.controls['numeri']">
+  <div *ngIf="!myForm.controls['numeri'].valid" class="alert alert-danger">Numeri is invalid
+</div>
+<div *ngIf="myForm.controls['numeri'].hasError('required')" class="alert alert-danger">Numeri is required
+</div>
+  <button class = "btn btn-primary">cliccami</button>
+  </div>
 </form>
+</div>
 <app-elenco [el] = "vettUtenti"></app-elenco>

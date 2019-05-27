@@ -12,6 +12,8 @@ export class AppComponent {
   myForm: FormGroup;
   vettUtenti: bacheca[];
   input: bacheca;
+  mostraRegistrazione: Boolean;
+  testo: string;
   constructor(fb:FormBuilder){
     this.vettUtenti=new Array();
     this.myForm = fb.group({
@@ -27,14 +29,27 @@ export class AppComponent {
     if(!this.myForm.invalid){
       
       this.input = new bacheca();
+
+ 
+      for(let i = 0; i < this.vettUtenti.length + 1;i++)
       this.input.nome = this.myForm.controls['nome'].value;
       this.input.cognome = this.myForm.controls['cognome'].value;
       this.input.email = this.myForm.controls['email'].value;
       this.input.password = this.myForm.controls['password'].value;
       this.input.numeri = this.myForm.controls['numeri'].value;
-      
+    
       this.vettUtenti.push(this.input);
       
     }
+  }
+  hiddenButton(): Boolean{
+    this.mostraRegistrazione = !this.mostraRegistrazione;
+    if(this.mostraRegistrazione){
+      this.testo = "Nascondi form";
+    }
+    else{
+      this.testo = "Mostra form";
+    }
+    return false;
   }
 }
