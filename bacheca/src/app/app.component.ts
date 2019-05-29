@@ -10,10 +10,13 @@ import { bacheca } from './bacheca';
 export class AppComponent {
   title = 'bacheca';
   myForm: FormGroup;
+  myForm2: FormGroup;
   vettUtenti: bacheca[];
   input: bacheca;
-  mostraRegistrazione: Boolean;
+  mostraRegistrazione: Boolean = false;
   testo: string;
+  t: Boolean = false;
+  y: number;
   constructor(fb:FormBuilder){
     this.vettUtenti=new Array();
     this.myForm = fb.group({
@@ -24,6 +27,11 @@ export class AppComponent {
       'numeri': ['',Validators.required]
       
     });
+    this.myForm2 = fb.group({
+      'nome': ['',Validators.required],
+      'cognome': ['',Validators.required],
+      'password': ['',Validators.required]
+    });
   }
   onSubmit(){
     if(!this.myForm.invalid){
@@ -31,15 +39,43 @@ export class AppComponent {
       this.input = new bacheca();
 
  
-      for(let i = 0; i < this.vettUtenti.length + 1;i++)
-      this.input.nome = this.myForm.controls['nome'].value;
-      this.input.cognome = this.myForm.controls['cognome'].value;
-      this.input.email = this.myForm.controls['email'].value;
-      this.input.password = this.myForm.controls['password'].value;
-      this.input.numeri = this.myForm.controls['numeri'].value;
-    
-      this.vettUtenti.push(this.input);
+      this.y = 1;
+      if(this.t == false){
+        for(let i = 0; i < this.vettUtenti.length; i++){
+          if(this.vettUtenti[this.y] == this.vettUtenti[i]){
+          this.input.nome = this.myForm.controls['nome'].value;
+          this.input.cognome = this.myForm.controls['cognome'].value;
+          this.input.email = this.myForm.controls['email'].value;
+          this.input.password = this.myForm.controls['password'].value;
+          this.input.numeri = this.myForm.controls['numeri'].value;
+          this.vettUtenti.push(this.input);
+          this.t = true;
+          this.y++;
+          }
+        }
+        
+      }
+    }
+  }
+  onSubmit2(){
+    if(!this.myForm2.invalid){
       
+      this.input = new bacheca();
+
+ 
+      this.y = 1;
+      if(this.t == false){
+        for(let i = 0; i < this.vettUtenti.length; i++){
+          if(this.vettUtenti[this.y] == this.vettUtenti[i]){
+          this.input.nome = this.myForm.controls['nome2'].value;
+          this.input.cognome = this.myForm.controls['cognome2'].value;
+          this.input.password = this.myForm.controls['password2'].value;
+          this.t = true;
+          this.y++;
+          }
+        }
+        
+      }
     }
   }
   hiddenButton(): Boolean{
