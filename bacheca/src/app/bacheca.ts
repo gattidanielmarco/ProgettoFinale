@@ -8,3 +8,7 @@ export class bacheca{
     
 
 }
+export class bacheca2{
+    email2: string;
+    password2: string;
+}

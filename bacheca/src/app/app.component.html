@@ -31,7 +31,7 @@
 </div>
 <div *ngIf="myForm.controls['numeri'].hasError('required')" class="alert alert-danger">Numeri is required
 </div>
-  <button class = "btn btn-primary">registrati</button>
+  <button class = "btn btn-primary">Registrati</button>
   </div>
 </form>
 </div>
@@ -39,20 +39,17 @@
 <div class="container" *ngIf="mostraRegistrazione">
 <form [formGroup] = "myForm2" (ngSubmit) = "onSubmit2()" class="jumbotron" style = "float:left;">
   <div class="form-group">
-  Nome <input type = "text" [formControl] = "myForm.controls['nome2']">
-  <div *ngIf="!myForm.controls['nome2'].valid" class="alert alert-danger">Nome is invalid
+Email <input type = "email" [formControl] = "myForm2.controls['email2']">
+  <div *ngIf="!myForm.controls['email2'].valid" class="alert alert-danger">Email is invalid
 </div>
-<div *ngIf="myForm.controls['nome2'].hasError('required')" class="alert alert-danger">Nome is required
+<div *ngIf="myForm2.controls['email2'].hasError('required')" class="alert alert-danger">Email is required
 </div>
-Cognome <input type = "text" [formControl] = "myForm.controls['cognome2']">
-  <div *ngIf="!myForm.controls['cognome2'].valid" class="alert alert-danger">Cognome is invalid
-</div>
-<div *ngIf="myForm.controls['cognome2'].hasError('required')" class="alert alert-danger">Cognome is required
-</div>
-Password <input type = "password" [formControl] = "myForm.controls['password2']">
+Password <input type = "password" [formControl] = "myForm2.controls['password2']">
   <div *ngIf="!myForm.controls['password2'].valid" class="alert alert-danger">Password is invalid
 </div>
 <div *ngIf="myForm.controls['password2'].hasError('required')" class="alert alert-danger">Password is required
 </div>
-</form>
+
 </div>
+<button class = "btn btn-primary">Login</button>
+</form>
