@@ -14,10 +14,11 @@ export class AppComponent {
   myForm: FormGroup;
   myForm2: FormGroup;
   vettUtenti: bacheca[] = Utenti;
+  selected: bacheca;
   input: bacheca;
   input2: bacheca2;
   mostraRegistrazione: Boolean = false;
-  testo: string;
+  testo: string
   t: Boolean = false;
   y: number;
   constructor(fb:FormBuilder){
@@ -40,37 +41,35 @@ export class AppComponent {
       this.input = new bacheca();
 
  
-      
-        for(let i = 0; i < this.vettUtenti.length; i++){
-          
           this.input.nome = this.myForm.controls['nome'].value;
           this.input.cognome = this.myForm.controls['cognome'].value;
           this.input.email = this.myForm.controls['email'].value;
           this.input.password = this.myForm.controls['password'].value;
           this.input.numeri = this.myForm.controls['numeri'].value;
           this.vettUtenti.push(this.input);
+               
           
-        }
-        
       
     }
   }
   onSubmit2(){
     if(!this.myForm2.invalid){
       
-      this.input = new bacheca();
+      this.input2 = new bacheca2();
 
         
           this.input2.email2 = this.myForm2.controls['email2'].value;
           this.input2.password2 = this.myForm2.controls['password2'].value;
-          
-          
-          if(this.input.email == this.input2.email2 ){
-            if(this.input.password == this.input2.email2){
-              console.log("Ti sei loggato");
+          for(let i = 0; i < this.vettUtenti.length; i++){
+            if(this.input2.email2 == this.vettUtenti[i].email){
+              if(this.input2.password2 == this.vettUtenti[i].password){
+                console.log("Ti sei loggato");
+              }
             }
           }
           
+          
+         
         
         
       
@@ -86,4 +85,6 @@ export class AppComponent {
     }
     return false;
   }
+  
+
 }

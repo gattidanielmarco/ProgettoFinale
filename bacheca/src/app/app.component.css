@@ -7,3 +7,9 @@
    border-left: 5px solid #a94442; /* red */
  }
 .right{float:right;}
+.myForm{
+    background-color: blue;
+}
+.myForm2{
+    background-color: yellow;
+}
