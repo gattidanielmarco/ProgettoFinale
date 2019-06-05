@@ -33,21 +33,23 @@
 </div>
   <button class = "btn btn-primary">Registrati</button>
   </div>
+  <app-elenco [el] = "vettUtenti"></app-elenco>
 </form>
 </div>
-<app-elenco [el] = "vettUtenti"></app-elenco>
+
+
 <div class="container" *ngIf="mostraRegistrazione">
 <form [formGroup] = "myForm2" (ngSubmit) = "onSubmit2()" class="jumbotron" style = "float:left;">
   <div class="form-group">
 Email <input type = "email" [formControl] = "myForm2.controls['email2']">
-  <div *ngIf="!myForm.controls['email2'].valid" class="alert alert-danger">Email is invalid
+  <div *ngIf="!myForm2.controls['email2'].valid" class="alert alert-danger">Email is invalid
 </div>
 <div *ngIf="myForm2.controls['email2'].hasError('required')" class="alert alert-danger">Email is required
 </div>
 Password <input type = "password" [formControl] = "myForm2.controls['password2']">
-  <div *ngIf="!myForm.controls['password2'].valid" class="alert alert-danger">Password is invalid
+  <div *ngIf="!myForm2.controls['password2'].valid" class="alert alert-danger">Password is invalid
 </div>
-<div *ngIf="myForm.controls['password2'].hasError('required')" class="alert alert-danger">Password is required
+<div *ngIf="myForm2.controls['password2'].hasError('required')" class="alert alert-danger">Password is required
 </div>
 
 </div>

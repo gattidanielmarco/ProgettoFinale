@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { bacheca } from './bacheca';
 import { bacheca2 } from './bacheca';
+import { Utenti } from './mock-bacheca';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent {
   title = 'bacheca';
   myForm: FormGroup;
   myForm2: FormGroup;
-  vettUtenti: bacheca[];
+  vettUtenti: bacheca[] = Utenti;
   input: bacheca;
   input2: bacheca2;
   mostraRegistrazione: Boolean = false;
@@ -20,7 +21,6 @@ export class AppComponent {
   t: Boolean = false;
   y: number;
   constructor(fb:FormBuilder){
-    this.vettUtenti=new Array();
     this.myForm = fb.group({
       'nome': ['',Validators.required],
       'cognome': ['',Validators.required],
@@ -40,22 +40,19 @@ export class AppComponent {
       this.input = new bacheca();
 
  
-      this.y = 1;
-      if(this.t == false){
+      
         for(let i = 0; i < this.vettUtenti.length; i++){
-          if(this.vettUtenti[this.y] == this.vettUtenti[i]){
+          
           this.input.nome = this.myForm.controls['nome'].value;
           this.input.cognome = this.myForm.controls['cognome'].value;
           this.input.email = this.myForm.controls['email'].value;
           this.input.password = this.myForm.controls['password'].value;
           this.input.numeri = this.myForm.controls['numeri'].value;
           this.vettUtenti.push(this.input);
-          this.t = true;
-          this.y++;
-          }
+          
         }
         
-      }
+      
     }
   }
   onSubmit2(){
@@ -63,14 +60,10 @@ export class AppComponent {
       
       this.input = new bacheca();
 
- 
-      this.y = 1;
-      if(this.t == false){
         
-          this.input2.email2 = this.myForm.controls['email2'].value;
-          this.input2.password2 = this.myForm.controls['password2'].value;
-          this.t = true;
-          this.y++;
+          this.input2.email2 = this.myForm2.controls['email2'].value;
+          this.input2.password2 = this.myForm2.controls['password2'].value;
+          
           
           if(this.input.email == this.input2.email2 ){
             if(this.input.password == this.input2.email2){
@@ -80,7 +73,7 @@ export class AppComponent {
           
         
         
-      }
+      
     }
   }
   hiddenButton(): Boolean{
