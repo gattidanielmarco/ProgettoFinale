@@ -1,5 +1,6 @@
 import { bacheca } from './bacheca';
 import {loginDati} from './bacheca';
+import {commenti} from './bacheca';
 
 export const Utenti: bacheca[] = [
   { nome: 'Luca',cognome: 'Rossi',  email: 'luca.giurato@gmlai.it', password: 'xxx123##', numeri: '3456789002'},
@@ -9,4 +10,8 @@ export const Utenti: bacheca[] = [
 export const Dati: loginDati[] = [
   { nomeLogin: 'Luca',cognomeLogin: 'Rossi'},
   { nomeLogin: 'Umberto',cognomeLogin: 'Verdi'}
+];
+export const CommentoUtente: commenti[] = [
+  { commento: 'Vedo macchina da cucire', nome: 'Luca', cognome: 'Rossi'},
+  { commento: 'Cerco macchina Tesla', nome: 'Umberto', cognome: 'Verdi'}
 ];

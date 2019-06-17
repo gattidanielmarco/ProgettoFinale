@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { bacheca, loginDati } from './bacheca';
 import { bacheca2 } from './bacheca';
+import { commenti } from './bacheca';
 import { Utenti } from './mock-bacheca';
-
+import { Dati } from './mock-bacheca';
+import { CommentoUtente } from './mock-bacheca';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,11 +15,14 @@ export class AppComponent {
   title = 'bacheca';
   myForm: FormGroup;
   myForm2: FormGroup;
+  myForm3: FormGroup;
   vettUtenti: bacheca[] = Utenti;
-  vettLogin: loginDati[];
+  vettLogin: loginDati[] = Dati;
+  vettCommenti: commenti[] = CommentoUtente;
   selected: bacheca;
   input: bacheca;
   input2: bacheca2;
+  input3: commenti;
   login: loginDati;
   mostraRegistrazione: Boolean = false;
   testo: string
@@ -35,6 +40,9 @@ export class AppComponent {
     this.myForm2 = fb.group({
       'email2': ['',[Validators.required, Validators.email]],
       'password2': ['',Validators.required]
+    });
+    this.myForm3 = fb.group({
+      'commento': ['', Validators.required]
     });
   }
   onSubmit(){
@@ -81,6 +89,26 @@ export class AppComponent {
 
 
     }
+  }
+  onSubmit3(){
+      this.input3 = new commenti();
+      this.input3.commento = this.myForm3.controls['commento'].value;
+      for(let i = 0; i < this.vettUtenti.length; i++){
+            if(this.input2.email2 == this.vettUtenti[i].email){
+              if(this.input2.password2 == this.vettUtenti[i].password){
+                console.log("Ti sei loggato");
+
+                this.input3.nome = this.vettLogin[i].nomeLogin;
+                this.input3.cognome = this.vettLogin[i].cognomeLogin;
+                this.vettCommenti.push(this.input3);
+              }
+            }
+          }
+
+
+
+
+
   }
   hiddenButton(): Boolean{
     this.mostraRegistrazione = !this.mostraRegistrazione;

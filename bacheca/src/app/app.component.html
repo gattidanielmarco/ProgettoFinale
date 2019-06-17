@@ -58,3 +58,16 @@ Password <input type = "password" [formControl] = "myForm2.controls['password2']
   <p *ngIf = "j">{{vettLogin[j]}}</p></h2>
 
 </form>
+<br>
+
+<div class="container" style = "float: right;">
+<form [formGroup] = "myForm3" (ngSubmit) = "onSubmit3()" class="jumbotron">
+  <ul>
+    <li *ngFor = "let commenti of vettCommenti">
+      {{commenti.nome}} {{commenti.cognome}} : {{commenti.commento}}<br>
+      Inserisci commento: <input type = "text" [formControl] = "myForm3.controls['commento']">
+      <button>Invia commento</button>
+    </li>
+  </ul>
+</form>
+</div>

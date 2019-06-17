@@ -16,3 +16,8 @@ export class loginDati{
     nomeLogin: string;
     cognomeLogin: string;
 }
+export class commenti{
+    commento: string;
+    nome: string;
+    cognome: string;
+}
