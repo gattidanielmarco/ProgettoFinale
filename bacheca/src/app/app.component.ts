@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { bacheca } from './bacheca';
+import { bacheca, loginDati } from './bacheca';
 import { bacheca2 } from './bacheca';
 import { Utenti } from './mock-bacheca';
 
@@ -14,9 +14,11 @@ export class AppComponent {
   myForm: FormGroup;
   myForm2: FormGroup;
   vettUtenti: bacheca[] = Utenti;
+  vettLogin: loginDati[];
   selected: bacheca;
   input: bacheca;
   input2: bacheca2;
+  login: loginDati;
   mostraRegistrazione: Boolean = false;
   testo: string
   t: Boolean = false;
@@ -28,7 +30,7 @@ export class AppComponent {
       'email': ['',[Validators.required, Validators.email]],
       'password': ['',Validators.required],
       'numeri': ['',Validators.required]
-      
+
     });
     this.myForm2 = fb.group({
       'email2': ['',[Validators.required, Validators.email]],
@@ -37,42 +39,47 @@ export class AppComponent {
   }
   onSubmit(){
     if(!this.myForm.invalid){
-      
-      this.input = new bacheca();
 
- 
+      this.input = new bacheca();
+      this.login = new loginDati();
           this.input.nome = this.myForm.controls['nome'].value;
           this.input.cognome = this.myForm.controls['cognome'].value;
           this.input.email = this.myForm.controls['email'].value;
           this.input.password = this.myForm.controls['password'].value;
           this.input.numeri = this.myForm.controls['numeri'].value;
           this.vettUtenti.push(this.input);
-               
-          
-      
+          this.login.nomeLogin = this.myForm.controls['nome'].value;
+          this.login.cognomeLogin = this.myForm.controls['cognome'].value;
+          this.vettLogin.push(this.login);
+
+
     }
   }
-  onSubmit2(){
+  onSubmit2(): number{
+    let j = 0;
     if(!this.myForm2.invalid){
-      
+
       this.input2 = new bacheca2();
 
-        
+
           this.input2.email2 = this.myForm2.controls['email2'].value;
           this.input2.password2 = this.myForm2.controls['password2'].value;
           for(let i = 0; i < this.vettUtenti.length; i++){
             if(this.input2.email2 == this.vettUtenti[i].email){
               if(this.input2.password2 == this.vettUtenti[i].password){
                 console.log("Ti sei loggato");
+                j = i;
+
               }
             }
           }
-          
-          
-         
-        
-        
-      
+          return j;
+
+
+
+
+
+
     }
   }
   hiddenButton(): Boolean{
@@ -85,6 +92,6 @@ export class AppComponent {
     }
     return false;
   }
-  
+
 
 }
