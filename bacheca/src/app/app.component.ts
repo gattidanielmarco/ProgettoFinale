@@ -64,7 +64,7 @@ export class AppComponent {
     }
   }
   onSubmit2(): number{
-    let j = 0;
+    let k = 0;
     if(!this.myForm2.invalid){
 
       this.input2 = new bacheca2();
@@ -76,12 +76,13 @@ export class AppComponent {
             if(this.input2.email2 == this.vettUtenti[i].email){
               if(this.input2.password2 == this.vettUtenti[i].password){
                 console.log("Ti sei loggato");
-                j = i;
-
+                this.vettLogin[k].nomeLogin = this.vettUtenti[i].nome;
+                this.vettLogin[k].cognomeLogin = this.vettUtenti[i].cognome;
+                console.log(this.vettLogin);
               }
             }
           }
-          return j;
+          return k;
 
 
 
