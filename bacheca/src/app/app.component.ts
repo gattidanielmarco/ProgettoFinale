@@ -28,6 +28,7 @@ export class AppComponent {
   testo: string
   t: Boolean = false;
   y: number;
+  commentoUguale: Boolean = false;
   constructor(fb:FormBuilder){
     this.myForm = fb.group({
       'nome': ['',Validators.required],
@@ -79,6 +80,8 @@ export class AppComponent {
                 this.vettLogin[k].nomeLogin = this.vettUtenti[i].nome;
                 this.vettLogin[k].cognomeLogin = this.vettUtenti[i].cognome;
                 console.log(this.vettLogin);
+                this.t = true;
+
               }
             }
           }
@@ -102,15 +105,28 @@ export class AppComponent {
                 this.input3.nome = this.vettLogin[i].nomeLogin;
                 this.input3.cognome = this.vettLogin[i].cognomeLogin;
                 this.vettCommenti.push(this.input3);
+                this.t = true;
+                console.log(this.vettCommenti);
+                }
+                for(let y = 0; y <this.vettCommenti.length - 1; y++){
+                  for(let j = 1; j < this.vettCommenti.length; j++){
+
+                      if(this.vettCommenti[y].commento == this.vettCommenti[j].commento){
+                          this.commentoUguale = true;
+                        }
+
+                      }
+
+                    }
+                }
               }
             }
-          }
 
 
 
 
 
-  }
+
   hiddenButton(): Boolean{
     this.mostraRegistrazione = !this.mostraRegistrazione;
     if(this.mostraRegistrazione){
@@ -121,6 +137,9 @@ export class AppComponent {
     }
     return false;
   }
-
+  /*logout(){
+    this.t = false;
+    console.log("devi effettuare il login");
+  }*/
 
 }
