@@ -105,8 +105,8 @@ export class AppComponent {
   onSubmit3(){
       this.input3 = new commenti();
       this.input3.commento = this.myForm3.controls['commento'].value;
-      
-      
+
+
       for(let i = 0; i < this.vettUtenti.length; i++){
             if(this.input2.email2 == this.vettUtenti[i].email){
               if(this.input2.password2 == this.vettUtenti[i].password){
@@ -114,11 +114,11 @@ export class AppComponent {
 
                 this.input3.nome = this.vettLogin[i].nomeLogin;
                 this.input3.cognome = this.vettLogin[i].cognomeLogin;
-                //this.input4.risposta = this.myForm3.controls['risposta'].value;
-                //this.input4.nome = this.vettLogin[i].nomeLogin;
-                //this.input4.cognome = this.vettLogin[i].cognomeLogin;
+                this.input4.risposta = this.myForm3.controls['risposta'].value;
+                this.input4.nome = this.vettLogin[i].nomeLogin;
+                this.input4.cognome = this.vettLogin[i].cognomeLogin;
                 this.vettCommenti.push(this.input3);
-                //this.vettRisposte.push(this.input4);
+                this.vettRisposte.push(this.input4);
                 this.t = true;
                 console.log(this.vettCommenti);
                 }
@@ -151,7 +151,11 @@ export class AppComponent {
     }
     return false;
   }
-  
+  addRisposta(text: HTMLInputElement)
+  {
+
+    this.vettRisposte.push(this.vettRisposte.nome, this.vettRisposte.cognome,text.value);
+  }
   /*logout(){
     this.t = false;
     console.log("devi effettuare il login");
