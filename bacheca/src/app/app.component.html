@@ -63,17 +63,23 @@ Password <input type = "password" [formControl] = "myForm2.controls['password2']
 
 <div class="container" style = "float: right;">
 <form [formGroup] = "myForm3" (ngSubmit) = "onSubmit3()" class="jumbotron" *ngIf = "t; else logout">
-  <div *ngFor = "let commenti of vettCommenti" *ngIf = "!commentoUguale">
+  <dd >
+    Inserisci commento: <input type = "text" [formControl] = "myForm3.controls['commento']">
+    <button>Invia commento</button>
+  </dd>
+  <div *ngFor = "let commenti of vettCommenti;" >
   <ul >
     <li >
-      {{commenti.nome}} {{commenti.cognome}} : {{commenti.commento}}<br></li>
-      <dd >
-        Inserisci commento: <input type = "text" [formControl] = "myForm3.controls['commento']">
-        <button>Invia commento</button>
-      </dd>
-
-
-
+      {{commenti.nome}} {{commenti.cognome}} : {{commenti.commento}}<br>
+      
+      </li>
+     <!-- <dd *ngFor = "let r of vettRisposte">
+        {{r.nome}} {{r.cognome}} {{r.risposta}}
+      </dd>-->
+      <!--<dd>
+        Risposta: <input type = "text" [formControl] = "myForm3.controls['risposta']">
+        <button>Inserisci risposta</button>
+      </dd>-->
   </ul>
   </div>
   <ng-template #logout >

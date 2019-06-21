@@ -20,4 +20,10 @@ export class commenti{
     commento: string;
     nome: string;
     cognome: string;
+   
+}
+export class risposte{
+  risposta: string;
+  nome: string;
+  cognome: string;
 }

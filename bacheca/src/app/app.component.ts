@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { bacheca, loginDati } from './bacheca';
 import { bacheca2 } from './bacheca';
 import { commenti } from './bacheca';
+import { risposte } from './bacheca';
 import { Utenti } from './mock-bacheca';
 import { Dati } from './mock-bacheca';
 import { CommentoUtente } from './mock-bacheca';
@@ -16,13 +17,19 @@ export class AppComponent {
   myForm: FormGroup;
   myForm2: FormGroup;
   myForm3: FormGroup;
+
   vettUtenti: bacheca[] = Utenti;
   vettLogin: loginDati[] = Dati;
   vettCommenti: commenti[] = CommentoUtente;
+  vettRisposte: risposte[];
+
   selected: bacheca;
+
   input: bacheca;
   input2: bacheca2;
   input3: commenti;
+  input4: risposte;
+
   login: loginDati;
   mostraRegistrazione: Boolean = false;
   testo: string
@@ -43,7 +50,8 @@ export class AppComponent {
       'password2': ['',Validators.required]
     });
     this.myForm3 = fb.group({
-      'commento': ['', Validators.required]
+      'commento': ['', Validators.required],
+      'risposta': ['', Validators.required]
     });
   }
   onSubmit(){
@@ -97,6 +105,8 @@ export class AppComponent {
   onSubmit3(){
       this.input3 = new commenti();
       this.input3.commento = this.myForm3.controls['commento'].value;
+      //this.input4.risposta = this.myForm3.controls['risposta'].value;
+      
       for(let i = 0; i < this.vettUtenti.length; i++){
             if(this.input2.email2 == this.vettUtenti[i].email){
               if(this.input2.password2 == this.vettUtenti[i].password){
@@ -104,7 +114,10 @@ export class AppComponent {
 
                 this.input3.nome = this.vettLogin[i].nomeLogin;
                 this.input3.cognome = this.vettLogin[i].cognomeLogin;
+                //this.input4.nome = this.vettLogin[i].nomeLogin;
+                //this.input4.cognome = this.vettLogin[i].cognomeLogin;
                 this.vettCommenti.push(this.input3);
+                //this.vettRisposte.push(this.input4);
                 this.t = true;
                 console.log(this.vettCommenti);
                 }
