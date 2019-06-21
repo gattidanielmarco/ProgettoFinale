@@ -105,7 +105,7 @@ export class AppComponent {
   onSubmit3(){
       this.input3 = new commenti();
       this.input3.commento = this.myForm3.controls['commento'].value;
-      //this.input4.risposta = this.myForm3.controls['risposta'].value;
+      
       
       for(let i = 0; i < this.vettUtenti.length; i++){
             if(this.input2.email2 == this.vettUtenti[i].email){
@@ -114,6 +114,7 @@ export class AppComponent {
 
                 this.input3.nome = this.vettLogin[i].nomeLogin;
                 this.input3.cognome = this.vettLogin[i].cognomeLogin;
+                //this.input4.risposta = this.myForm3.controls['risposta'].value;
                 //this.input4.nome = this.vettLogin[i].nomeLogin;
                 //this.input4.cognome = this.vettLogin[i].cognomeLogin;
                 this.vettCommenti.push(this.input3);
@@ -150,6 +151,7 @@ export class AppComponent {
     }
     return false;
   }
+  
   /*logout(){
     this.t = false;
     console.log("devi effettuare il login");

@@ -73,14 +73,8 @@ Password <input type = "password" [formControl] = "myForm2.controls['password2']
       {{commenti.nome}} {{commenti.cognome}} : {{commenti.commento}}<br>
       
       </li>
-     <!-- <dd *ngFor = "let r of vettRisposte">
-        {{r.nome}} {{r.cognome}} {{r.risposta}}
-      </dd>-->
-      <!--<dd>
-        Risposta: <input type = "text" [formControl] = "myForm3.controls['risposta']">
-        <button>Inserisci risposta</button>
-      </dd>-->
   </ul>
+  <app-risposta [vC] = "vettCommenti"></app-risposta>
   </div>
   <ng-template #logout >
     <h1>Non sei loggato</h1>
