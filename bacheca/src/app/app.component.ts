@@ -35,6 +35,7 @@ export class AppComponent {
   testo: string
   t: Boolean = false;
   y: number;
+  indice: number;
   commentoUguale: Boolean = false;
   constructor(fb:FormBuilder){
     this.myForm = fb.group({
@@ -114,11 +115,8 @@ export class AppComponent {
 
                 this.input3.nome = this.vettLogin[i].nomeLogin;
                 this.input3.cognome = this.vettLogin[i].cognomeLogin;
-                this.input4.risposta = this.myForm3.controls['risposta'].value;
-                this.input4.nome = this.vettLogin[i].nomeLogin;
-                this.input4.cognome = this.vettLogin[i].cognomeLogin;
                 this.vettCommenti.push(this.input3);
-                this.vettRisposte.push(this.input4);
+
                 this.t = true;
                 console.log(this.vettCommenti);
                 }
@@ -153,8 +151,8 @@ export class AppComponent {
   }
   addRisposta(text: HTMLInputElement)
   {
+    this.vettRisposte.push(new risposte(text.value,this.input.nome,this.input.cognome,this.t));
 
-    this.vettRisposte.push(this.vettRisposte.nome, this.vettRisposte.cognome,text.value);
   }
   /*logout(){
     this.t = false;

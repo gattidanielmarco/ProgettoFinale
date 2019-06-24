@@ -20,10 +20,18 @@ export class commenti{
     commento: string;
     nome: string;
     cognome: string;
-   
+
 }
 export class risposte{
+
   risposta: string;
   nome: string;
   cognome: string;
+  t: Boolean;
+  constructor(ris: string, n: string, c: string, login: Boolean){
+    this.risposta = ris;
+    this.nome = n;
+    this.cognome = c;
+    this.t = login;
+  }
 }

@@ -83,7 +83,7 @@ Password <input type = "password" [formControl] = "myForm2.controls['password2']
       </li>
       <div *ngIf="t">
         <input #ris>
-        <button (click)="addRisposta(vettRisposte.nome, vettRisposte.cognome, ris)">Aggiungi commento</button>
+        <button (click)="addRisposta(ris,vettRisposte.nome, vettRisposte.cognome,t)">Aggiungi commento</button>
       </div>
     </ul>
 
