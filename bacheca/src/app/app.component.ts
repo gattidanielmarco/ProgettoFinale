@@ -104,7 +104,7 @@ export class AppComponent {
     }
   }
   onSubmit3(){
-      this.input3 = new commenti();
+      //this.input3 = new commenti();
       this.input3.commento = this.myForm3.controls['commento'].value;
 
 
@@ -115,7 +115,8 @@ export class AppComponent {
 
                 this.input3.nome = this.vettLogin[i].nomeLogin;
                 this.input3.cognome = this.vettLogin[i].cognomeLogin;
-                this.vettCommenti.push(this.input3);
+                let r = new commenti(this.input3.commento,this.input3.nome,this.input3.cognome,new Array<risposte>());
+                this.vettCommenti.push(r);
 
                 this.t = true;
                 console.log(this.vettCommenti);
@@ -149,9 +150,9 @@ export class AppComponent {
     }
     return false;
   }
-  addRisposta(text: HTMLInputElement)
+  addRisposta(risp: risposte[],text: HTMLInputElement)
   {
-    this.vettRisposte.push(new risposte(text.value,this.input.nome,this.input.cognome,this.t));
+    risp.push(new risposte(text.value,this.input.nome,this.input.cognome,this.t));
 
   }
   /*logout(){

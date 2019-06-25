@@ -78,13 +78,14 @@ Password <input type = "password" [formControl] = "myForm2.controls['password2']
 
       </p>
     <ul>
-      <li *ngFor = "let r of vettRisposte">
+      <li *ngFor = "let r of commenti.vettRisposte">
         {{r.nome}} {{r.cognome}} --> {{r.risposta}}
-      </li>
-      <div *ngIf="t">
+        <div *ngIf="t">
         <input #ris>
-        <button (click)="addRisposta(ris,vettRisposte.nome, vettRisposte.cognome,t)">Aggiungi commento</button>
+        <button (click)="addRisposta(r.vettRisposte,ris)">Aggiungi commento</button>
       </div>
+      </li>
+
     </ul>
 
   </div>

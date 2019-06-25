@@ -16,12 +16,6 @@ export class loginDati{
     nomeLogin: string;
     cognomeLogin: string;
 }
-export class commenti{
-    commento: string;
-    nome: string;
-    cognome: string;
-
-}
 export class risposte{
 
   risposta: string;
@@ -35,3 +29,17 @@ export class risposte{
     this.t = login;
   }
 }
+export class commenti{
+    commento: string;
+    nome: string;
+    cognome: string;
+    vettRisposte: risposte[];
+    constructor(c: string, n: string, cogn: string, v: risposte[]){
+      this.commento = c;
+      this.nome = n;
+      this.cognome = cogn;
+      this.vettRisposte = v;
+    }
+
+}
+

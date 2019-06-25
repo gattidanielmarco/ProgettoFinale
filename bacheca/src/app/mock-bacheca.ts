@@ -12,6 +12,11 @@ export const Dati: loginDati[] = [
   { nomeLogin: 'Umberto',cognomeLogin: 'Verdi'}
 ];
 export const CommentoUtente: commenti[] = [
-  { commento: 'Vedo macchina da cucire', nome: 'Luca', cognome: 'Rossi'},
-  { commento: 'Cerco macchina Tesla', nome: 'Umberto', cognome: 'Verdi'}
+  { commento: 'Vedo macchina da cucire', nome: 'Luca', cognome: 'Rossi',
+  vettRisposte:[
+    {risposta: "la compro", nome: "Umberto", cognome: "Verdi", t: true}
+  ]},
+  { commento: 'Cerco macchina Tesla', nome: 'Umberto', cognome: 'Verdi', vettRisposte:[
+    {risposta: "te la vendo io", nome: "Luca", cognome: "Rossi", t: true}
+  ]}
 ];
