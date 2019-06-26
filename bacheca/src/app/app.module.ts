@@ -4,12 +4,14 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ElencoComponent } from './elenco/elenco.component';
+import { NewObjectComponent } from './new-object/new-object.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ElencoComponent,
+    NewObjectComponent,
 
   ],
   imports: [

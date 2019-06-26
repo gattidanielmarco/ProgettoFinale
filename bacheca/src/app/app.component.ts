@@ -105,14 +105,14 @@ export class AppComponent {
   }
   onSubmit3(){
       //this.input3 = new commenti();
-      this.input3.commento = this.myForm3.controls['commento'].value;
+
 
 
       for(let i = 0; i < this.vettUtenti.length; i++){
             if(this.input2.email2 == this.vettUtenti[i].email){
               if(this.input2.password2 == this.vettUtenti[i].password){
                 console.log("Ti sei loggato");
-
+                this.input3.commento = this.myForm3.controls['commento'].value;
                 this.input3.nome = this.vettLogin[i].nomeLogin;
                 this.input3.cognome = this.vettLogin[i].cognomeLogin;
                 let r = new commenti(this.input3.commento,this.input3.nome,this.input3.cognome,new Array<risposte>());

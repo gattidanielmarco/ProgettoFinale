@@ -1,0 +1,6 @@
+<div *ngFor = "let vett of vettLogin">
+  <h3>{{vett.nome}} {{vett.cognome}}</h3>
+  <ul *ngFor = "let oggetto of vettObject">
+    {{oggetto.descrizione}} {{oggetto.prezzo}} --> {{oggetto.link}}
+  </ul>
+</div>
