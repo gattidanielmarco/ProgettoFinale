@@ -1,3 +1,4 @@
+
 <button (click) = "hiddenButton()" class = "btn btn-primary right">Registrati</button>
 <div class="container" *ngIf="mostraRegistrazione">
 <form [formGroup] = "myForm" (ngSubmit) = "onSubmit()" class="jumbotron" style = "float:left;">
@@ -39,7 +40,7 @@
 
 
 <div class="container" *ngIf="mostraRegistrazione">
-<form [formGroup] = "myForm2" (ngSubmit) = "onSubmit2(k)" class="jumbotron" style = "float:left;">
+<form [formGroup] = "myForm2" (ngSubmit) = "onSubmit2()" class="jumbotron" style = "float:left;">
   <div class="form-group">
 Email <input type = "email" [formControl] = "myForm2.controls['email2']">
   <div *ngIf="!myForm2.controls['email2'].valid" class="alert alert-danger">Email is invalid
@@ -80,16 +81,16 @@ Password <input type = "password" [formControl] = "myForm2.controls['password2']
     <ul>
       <li *ngFor = "let r of commenti.vettRisposte">
         {{r.nome}} {{r.cognome}} --> {{r.risposta}}
-        <div *ngIf="t">
-        <input #ris>
-        <button (click)="addRisposta(r.vettRisposte,ris)">Aggiungi commento</button>
-      </div>
+
       </li>
 
     </ul>
-
+    <div *ngIf="t">
+      <input #ris>
+      <button (click)="addRisposta(commenti.vettRisposte,ris)">Aggiungi commento</button>
+    </div>
   </div>
-  <app-new-object [login] = "vettLogin"></app-new-object>
 
+<app-new-object [login] = "vettLogin"></app-new-object>
 
 </div>

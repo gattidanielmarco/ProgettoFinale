@@ -22,7 +22,7 @@ export class AppComponent {
   vettLogin: loginDati[] = Dati;
   vettCommenti: commenti[] = CommentoUtente;
   vettRisposte: risposte[];
-
+  utenteLoggato: bacheca;
   selected: bacheca;
 
   input: bacheca;
@@ -73,7 +73,7 @@ export class AppComponent {
 
     }
   }
-  onSubmit2(): number{
+  onSubmit2(){
     let k = 0;
     if(!this.myForm2.invalid){
 
@@ -86,15 +86,13 @@ export class AppComponent {
             if(this.input2.email2 == this.vettUtenti[i].email){
               if(this.input2.password2 == this.vettUtenti[i].password){
                 console.log("Ti sei loggato");
-                this.vettLogin[k].nomeLogin = this.vettUtenti[i].nome;
-                this.vettLogin[k].cognomeLogin = this.vettUtenti[i].cognome;
+                this.utenteLoggato = this.vettUtenti[i];
                 console.log(this.vettLogin);
                 this.t = true;
 
               }
             }
           }
-          return k;
 
 
 
@@ -104,36 +102,10 @@ export class AppComponent {
     }
   }
   onSubmit3(){
-      //this.input3 = new commenti();
 
+      this.vettCommenti.push(new commenti(this.myForm3.controls['commento'].value, this.utenteLoggato.nome, this.utenteLoggato.cognome, new Array<risposte>()));
 
-
-      for(let i = 0; i < this.vettUtenti.length; i++){
-            if(this.input2.email2 == this.vettUtenti[i].email){
-              if(this.input2.password2 == this.vettUtenti[i].password){
-                console.log("Ti sei loggato");
-                this.input3.commento = this.myForm3.controls['commento'].value;
-                this.input3.nome = this.vettLogin[i].nomeLogin;
-                this.input3.cognome = this.vettLogin[i].cognomeLogin;
-                let r = new commenti(this.input3.commento,this.input3.nome,this.input3.cognome,new Array<risposte>());
-                this.vettCommenti.push(r);
-
-                this.t = true;
-                console.log(this.vettCommenti);
-                }
-                for(let y = 0; y <this.vettCommenti.length - 1; y++){
-                  for(let j = 1; j < this.vettCommenti.length; j++){
-
-                      if(this.vettCommenti[y].commento == this.vettCommenti[j].commento){
-                          this.commentoUguale = true;
-                        }
-
-                      }
-
-                    }
-                }
-              }
-            }
+  }
 
 
 
@@ -152,7 +124,7 @@ export class AppComponent {
   }
   addRisposta(risp: risposte[],text: HTMLInputElement)
   {
-    risp.push(new risposte(text.value,this.input.nome,this.input.cognome,this.t));
+    risp.push(new risposte(text.value,this.utenteLoggato.nome,this.utenteLoggato.cognome));
 
   }
   /*logout(){
