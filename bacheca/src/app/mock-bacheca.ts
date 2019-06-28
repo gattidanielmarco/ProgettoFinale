@@ -14,9 +14,9 @@ export const Dati: loginDati[] = [
 export const CommentoUtente: commenti[] = [
   { commento: 'Vedo macchina da cucire', nome: 'Luca', cognome: 'Rossi',
   vettRisposte:[
-    {risposta: "la compro", nome: "Umberto", cognome: "Verdi", t: true}
+    {risposta: "la compro", nome: "Umberto", cognome: "Verdi"}
   ]},
   { commento: 'Cerco macchina Tesla', nome: 'Umberto', cognome: 'Verdi', vettRisposte:[
-    {risposta: "te la vendo io", nome: "Luca", cognome: "Rossi", t: true}
+    {risposta: "te la vendo io", nome: "Luca", cognome: "Rossi"}
   ]}
 ];

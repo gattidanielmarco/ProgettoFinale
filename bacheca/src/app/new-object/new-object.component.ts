@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { bacheca, loginDati } from '../bacheca';
+import { commenti } from '../bacheca';
 import { Oggetto } from './new-object';
 import { Object } from './mock-new-object';
 @Component({
@@ -8,7 +9,7 @@ import { Object } from './mock-new-object';
   styleUrls: ['./new-object.component.css']
 })
 export class NewObjectComponent implements OnInit {
-@Input() login: loginDati[];
+@Input() login: commenti[];
 vettObject: Oggetto[] = Object;
   constructor() { }
 

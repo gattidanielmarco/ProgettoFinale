@@ -1,6 +1,8 @@
-<div *ngFor = "let vett of vettLogin">
+<form>
+<div *ngFor = "let vett of vettCommenti">
   <h3>{{vett.nome}} {{vett.cognome}}</h3>
   <ul *ngFor = "let oggetto of vettObject">
     {{oggetto.descrizione}} {{oggetto.prezzo}} --> {{oggetto.link}}
   </ul>
 </div>
+</form>
