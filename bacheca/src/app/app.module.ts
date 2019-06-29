@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ElencoComponent } from './elenco/elenco.component';
 import { NewObjectComponent } from './new-object/new-object.component';
+import { NewPostComponent } from './new-post/new-post.component';
+import { UserObjectsComponent } from './user-objects/user-objects.component';
+import { ObjectsListComponent } from './objects-list/objects-list.component';
 
 
 @NgModule({
@@ -12,6 +15,9 @@ import { NewObjectComponent } from './new-object/new-object.component';
     AppComponent,
     ElencoComponent,
     NewObjectComponent,
+    NewPostComponent,
+    UserObjectsComponent,
+    ObjectsListComponent,
 
   ],
   imports: [

@@ -19,7 +19,7 @@ export class NewObjectComponent implements OnInit {
 vettObject: Oggetto[] = Object;
 myForm4: FormGroup;
 inputOggetti: oggetto1;
-utenteLoggato: bacheca;
+utenteLoggato: loginDati;
   constructor(fb: FormBuilder) {
     this.myForm4 = fb.group({
       'descrizione': ['',Validators.required],
@@ -32,10 +32,12 @@ utenteLoggato: bacheca;
   }
   onSubmitOggetti(){
     this.inputOggetti = new oggetto1();
+    this.utenteLoggato = new loginDati;
     this.inputOggetti.descrizione = this.myForm4.controls['descrizione'].value;
     this.inputOggetti.prezzo = this.myForm4.controls['prezzo'].value;
     this.inputOggetti.link = this.myForm4.controls['link'].value;
-    this.vettObject.push(new Oggetto(this.utenteLoggato.nome,this.utenteLoggato.cognome,new Array<oggetto1>()));
+    this.vettObject.push(new Oggetto(this.utenteLoggato.nomeLogin,this.utenteLoggato.cognomeLogin,new Array<oggetto1>()));
+    console.log(this.vettObject);
   }
 
 }
