@@ -1,8 +1,13 @@
-<form>
-<div *ngFor = "let vett of vettCommenti">
+<form [formGroup] = "myForm4" (ngSubmit) = "onSubmitOggetti()" class="jumbotron">
+
+  Inserisci descrizione <input type = "text" [formControl] = "myForm4.controls['descrizione']">
+  Inserisci prezzo <input type = "number" [formControl] = "myForm4.controls['prezzo']">
+  Inserisci link <input type = "url" [formControl] = "myForm4.controls['link']">
+  <button>Aggiungi Oggetto</button>
+<div *ngFor = "let vett of login">
   <h3>{{vett.nome}} {{vett.cognome}}</h3>
-  <ul *ngFor = "let oggetto of vettObject">
-    {{oggetto.descrizione}} {{oggetto.prezzo}} --> {{oggetto.link}}
+  <ul *ngFor = "let oggetto of vettObject ">
+    --> {{oggetto.vettOggetto}}
   </ul>
 </div>
 </form>
