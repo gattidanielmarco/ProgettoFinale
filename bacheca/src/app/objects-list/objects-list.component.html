@@ -1,3 +1,8 @@
-<p>
-  objects-list works!
-</p>
+<ul *ngFor = "let o of ogg">
+  <h2>{{o.nome}} {{o.cognome}}</h2>
+  <li>
+    Descrizione: {{o.descrizione}}<br>
+    Prezzo: {{o.prezzo}}<br>
+    Link: {{o.link}}
+  </li>
+</ul>
