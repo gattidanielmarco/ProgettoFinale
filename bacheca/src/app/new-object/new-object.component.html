@@ -7,7 +7,7 @@
 <div *ngFor = "let vett of login">
   <h3>{{vett.nome}} {{vett.cognome}}</h3>
   <ul *ngFor = "let oggetto of vettObject ">
-    --> {{oggetto.vettOggetto}}
+    --> {{oggetto.vettOggetto.descrizione}}
   </ul>
 </div>
 <!--<app-object-list [ogg] = "vettObject"></app-object-list>-->
